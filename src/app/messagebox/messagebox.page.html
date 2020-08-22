@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{receivername}}</ion-title>
+    <ion-title *ngIf="typing" style="float: right;"> typing....</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="margin-top:50px; margin-bottom: 10px" ngx-auto-scroll lock-y-offset="10" observe-attributes>
+  <ion-grid>
+    <ion-row *ngFor="let message of messagesarray">
+      <ion-col size="9"
+        *ngIf="userpayload.fullName !== receiverdata.fullName && userpayload.fullName !==  message.sendername"
+        class="message other-message">
+        <b>{{message.sendername}}</b><br>
+        <span>{{message.body}}</span>
+        <div class="time" text-right>
+          <br class="time">
+          {{message.createdAt | date :'short'}}
+        </div>
+      </ion-col>
+      <ion-col offset="3" size="9" *ngIf="userpayload.fullName == message.sendername" class="message my-message">
+        <b>{{message.sendername}}</b><br>
+        <span>{{message.body}}</span>
+        <div class="time" text-right>
+          <br class="time">
+          {{message.createdAt | date :'short'}}
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer no-border>
+  <ion-item class="inputItem" style="margin-top: 0px !important">
+    <ion-input [(ngModel)]="Msg" name="Msg" (keypress)="Istyping()" placeholder="Send a message...">
+    </ion-input>
+
+    <!-- <button class="emojiBtn" ion-button clear item-end (c  lick)="Toggled()">😄</button>
+
+    <div class="emoji-content-editable" (emojiPickerCaretEmitter)="HandleCurrentCaret($event)"
+      (input)="content = $event.target.textContent" [textContent]="content" contenteditable="true"></div> -->
+
+    <button class="msgBtn" ion-button clear item-end (click)="SendMessage()">
+      <ion-icon name="send"></ion-icon>
+    </button>
+  </ion-item>
+
+  <!-- <div>
+    <button class="emoji-toggle-button imgBtn" ion-button clear item-end [(emojiPickerIf)]="toggled"
+      [emojiPickerDirection]="direction" (emojiPickerSelect)="HandleSelection($event)"></button>
+  </div> -->
+
+</ion-footer>

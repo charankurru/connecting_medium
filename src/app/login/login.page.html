@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar style="background-color: #3880FF;">
+    <ion-title style="color: #3880FF;">ChatApp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <center>
+    <legend>
+      <h1>Login</h1>
+    </legend>
+  </center>
+  <ion-card style="margin-top: 20px;">
+
+    <ion-item>
+      <ion-label style="font-size: 20px;">
+        <ion-icon name="mail"></ion-icon>
+      </ion-label>
+      <ion-input class="input-field" [(ngModel)]="email" name="email" type="Email" placeholder="Email"></ion-input>
+    </ion-item>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-label style="font-size: 20px;">
+        <ion-icon name="key"></ion-icon>
+      </ion-label>
+      <ion-input [(ngModel)]="password" name="password" type="password" placeholder="Password"></ion-input>
+    </ion-item>
+  </ion-card>
+
+  <ion-card (click)="loginUser()">
+    <ion-item>
+      <ion-col offset="4" style="color:#3880FF;">
+        Login
+      </ion-col>
+    </ion-item>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col offset="1">
+        <a color="primary" routerLink="/register">SignUp?</a>
+      </ion-col>
+      <ion-col>
+        <a color="primary" routerLink="">ForgetPassword?</a>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>newpost</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card style="margin-top: 20px;">
+    <ion-item>
+      <ion-label style="font-size: 20px;">
+        <ion-icon name="pencil-outline"></ion-icon>
+      </ion-label>
+      <ion-textarea [(ngModel)]="post" name="post" placeholder="Write Something!">
+      </ion-textarea>
+    </ion-item>
+  </ion-card>
+  <ion-col offset="5">
+    <ion-button (click)="onPostfeed()">Add post!</ion-button>
+  </ion-col>
+
+
+</ion-content>

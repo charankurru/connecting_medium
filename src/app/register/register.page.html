@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <center>
+    <legend>
+      <h1>Signup</h1>
+
+    </legend>
+  </center>
+  <ion-card style="margin-top: 20px;">
+
+    <ion-item>
+      <ion-label style="font-size: 20px;">
+        <ion-icon name="person"></ion-icon>
+      </ion-label>
+      <ion-input type="text" placeholder="FirstName" class="input-field" [(ngModel)]="FirstName" name="FirstName">
+      </ion-input>
+    </ion-item>
+
+  </ion-card>
+
+
+  <ion-card>
+    <ion-item>
+      <ion-label style="font-size: 20px;">
+        <ion-icon name="mail"></ion-icon>
+      </ion-label>
+      <ion-input type="Email" class="input-field" [(ngModel)]="email" name="email" placeholder="Email"></ion-input>
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-label style="font-size: 20px;">
+        <ion-icon name="key"></ion-icon>
+      </ion-label>
+      <ion-input type="Password" placeholder="Password" class="input-field" [(ngModel)]="password" name="password">
+      </ion-input>
+    </ion-item>
+  </ion-card>
+  <center>
+    <ion-button (click)="signup()">submit</ion-button>
+  </center>
+</ion-content>

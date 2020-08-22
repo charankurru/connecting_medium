@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>chating</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar showCancelButton="focus"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let chats of userdetarr">
+      <ion-avatar slot="start" (click)="gotochatpage(chats.receiverId.fullName)">
+        <img src="../../assets/single_user.png">
+      </ion-avatar>
+      <ion-label (click)="gotochatpage(chats.receiverId.fullName)">{{chats.receiverId.fullName}}</ion-label>
+      <ion-icon name="radio-button-on" color="success" *ngIf="checkIfonline(chats.receiverId.fullName)"
+        style="font-size: 15px;"></ion-icon>
+
+      <a class="secondary-content">
+        <span
+          *ngIf="!chats.msgId.message[chats.msgId.message.length-1].isRead  && chats.receiverId.fullName == chats.msgId.message[chats.msgId.message.length-1].sendername">
+          <ion-badge color="success">new</ion-badge>
+        </span>
+        <p style="font-style: italic;font-size: small;">
+          {{MessageDate(chats.msgId.message[chats.msgId.message.length-1].createdAt)}}</p>
+      </a>
+
+    </ion-item>
+
+  </ion-list>
+  <ion-button class="btn btn-primary" style="float: right;" (click)="markallmsgs()">Mark as read</ion-button>
+
+</ion-content>
